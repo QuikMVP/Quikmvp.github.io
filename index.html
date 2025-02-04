@@ -1,77 +1,72 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Grit Coffee</title>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Company Name</title>
 
     <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-
-    <!-- Bootstrap Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
-    />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/custom.css">
   </head>
   <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
-      <!-- ... similar structure to Lumino's nav ... -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Your Company Name</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <!-- Hero Section -->
-    <section
-      class="vh-100 d-flex align-items-center justify-content-center"
-      id="home-section"
-      style="background: #444 url('images/coffee-hero.jpg') no-repeat center/cover;"
-    >
-      <div class="container text-center text-white">
-        <small class="d-block mb-2">Experience The Taste of True Grit</small>
-        <h1 class="display-4 fw-bold">Grit Coffee</h1>
-        <p class="lead mb-4">
-          Discover coffee that's as strong and determined as you are.
-        </p>
-        <a href="#products-section" class="btn btn-dark">
-          Shop Now
-        </a>
+    <header class="hero bg-primary text-white text-center">
+      <div class="container">
+        <h1>Welcome to Our Company</h1>
+        <p class="lead">We provide high quality services for you</p>
+        <a href="#services" class="btn btn-light">Learn More</a>
       </div>
-    </section>
+    </header>
 
     <!-- About Section -->
-    <section class="py-5" id="about-section">
-      <!-- ... about content, referencing Lumino's design patterns ... -->
+    <section id="about">
+      <!-- Content goes here -->
     </section>
 
-    <!-- Products/Shop Section -->
-    <section class="py-5 bg-light" id="products-section">
-      <!-- ... featured coffee products cards with .card shadow-sm ... -->
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-5" id="faq-section">
-      <!-- ... a simple accordion or list of FAQs ... -->
+    <!-- Services Section -->
+    <section id="services">
+      <!-- Content goes here -->
     </section>
 
     <!-- Contact Section -->
-    <section class="py-5 bg-light" id="contact-section">
-      <!-- ... form with input fields, plus contact info ... -->
+    <section id="contact">
+      <!-- Content goes here -->
     </section>
 
     <!-- Footer -->
-    <footer class="py-4 bg-dark text-white">
-      <!-- ... similar structure to Lumino's footer ... -->
+    <footer class="bg-dark text-white text-center p-3">
+      <p>&copy; 2022 Your Company Name</p>
     </footer>
 
-    <!-- Bootstrap JS + Popper.js -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    ><script>
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
