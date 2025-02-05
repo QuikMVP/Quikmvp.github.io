@@ -1,43 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Example Business</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Coffee Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <h1>Example Business</h1>
-    </header>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Navigation -->
+  <nav class="bg-white shadow">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="text-xl font-bold">Your Coffee Shop</div>
+      <div>
+        <a href="#home" class="px-4 hover:underline">Home</a>
+        <a href="#about" class="px-4 hover:underline">About Us</a>
+        <a href="#menu" class="px-4 hover:underline">Menu</a>
+        <a href="#shop" class="px-4 hover:underline">Shop</a>
+        <a href="#locations" class="px-4 hover:underline">Locations</a>
+        <a href="#contact" class="px-4 hover:underline">Contact Us</a>
+      </div>
+    </div>
+  </nav>
 
-    <section>
-        <h2>KPIs</h2>
-        <div>
-            <h3>Active Users</h3>
-            <p>0 Monthly</p>
-        </div>
-        <div>
-            <h3>Revenue</h3>
-            <p>$0 Monthly</p>
-        </div>
-        <div>
-            <h3>Conversion</h3>
-            <p>0% Monthly</p>
-        </div>
-        <div>
-            <h3>Retention</h3>
-            <p>0% Monthly</p>
-        </div>
-    </section>
+  <!-- Home Section -->
+  <section id="home" class="py-12">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold mb-4">Welcome to Our Coffee Shop</h1>
+      <p class="mb-6">
+        We serve the best coffee in town.
+      </p>
+    </div>
+  </section>
 
-    <section>
-        <h2>Products</h2>
-        <div>
-            <h3>Pods</h3>
-            <p>Clear coffee pods - $10</p>
-            <a href="your_stripe_payment_link_here">Buy Now</a>
-        </div>
-    </section>
+  <!-- About Us Section -->
+  <section id="about" class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">About Us</h2>
+      <p class="mb-6">
+        Our mission is to serve the best coffee.
+      </p>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="py-12">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Our Menu</h2>
+      <p class="mb-6">
+        We offer a variety of coffees and snacks.
+      </p>
+    </div>
+  </section>
+
+  <!-- Shop Section -->
+  <section id="shop" class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Our Shop</h2>
+      <p class="mb-6">
+        Purchase our coffee and merchandise online.
+      </p>
+    </div>
+  </section>
+
+  <!-- Locations Section -->
+  <section id="locations" class="py-12">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Our Locations</h2>
+      <p class="mb-6">
+        We have multiple outlets. Find the one nearest to you.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section id="contact" class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+      <p class="mb-6">
+        Have any questions or feedback? Get in touch with us.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white shadow mt-12">
+    <div class="container mx-auto px-4 py-4 text-center">
+      <p>&copy; 2022 Your Coffee Shop. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
