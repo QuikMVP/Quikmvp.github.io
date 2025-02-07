@@ -3,112 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Coffee Shop</title>
+  <title>Language Learning App</title>
+  <!-- Tailwind CSS via CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-900">
   <!-- Navigation -->
   <nav class="bg-white shadow">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="text-xl font-bold">Your Coffee Shop</div>
+      <div class="text-xl font-bold">Language App</div>
       <div>
-        <a href="#home" class="px-4 hover:underline">Home</a>
-        <a href="#about" class="px-4 hover:underline">About Us</a>
-        <a href="#menu" class="px-4 hover:underline">Menu</a>
-        <a href="#shop" class="px-4 hover:underline">Shop</a>
-        <a href="#locations" class="px-4 hover:underline">Locations</a>
-        <a href="#contact" class="px-4 hover:underline">Contact Us</a>
+        <a href="#features" class="px-4 hover:underline">Features</a>
+        <a href="#pricing" class="px-4 hover:underline">Pricing</a>
+        <a href="#contact" class="px-4 hover:underline">Contact</a>
       </div>
     </div>
   </nav>
 
-  <!-- Home Section -->
-  <section id="home" class="py-12">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl font-bold mb-4">Welcome to Our Coffee Shop</h1>
-      <p class="mb-6">
-        We serve the best coffee in town.
+  <!-- Hero Section -->
+  <section id="hero" class="py-12">
+    <div class="container mx-auto px-4">
+      <div class="mb-16 text-center">
+        <h1 class="text-5xl font-bold mb-4">Learn Languages Fast & Easy</h1>
+        <p class="mb-6">
+          Join our community and get access to interactive lessons, real-time conversations with native speakers, and personalized learning paths.
+        </p>
+        <a href="#pricing" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+          Get Started
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-8">Key Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white shadow rounded p-6 text-center">
+          <h3 class="text-xl font-bold mb-2">Interactive Lessons</h3>
+          <p>Experience engaging lessons with real-world scenarios.</p>
+        </div>
+        <div class="bg-white shadow rounded p-6 text-center">
+          <h3 class="text-xl font-bold mb-2">Speak From Day One</h3>
+          <p>Improve your speaking skills with real-time conversations.</p>
+        </div>
+        <div class="bg-white shadow rounded p-6 text-center">
+          <h3 class="text-xl font-bold mb-2">Personalized Learning</h3>
+          <p>Follow a learning path tailored to your progress.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us Section -->
+  <section id="whyus" class="py-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-8">Why Choose Us?</h2>
+      <p class="text-center mb-4">
+        Our app provides a unique learning experience that adapts to your individual learning style and performance. With our app, you can become fluent in a new language in a matter of months.
       </p>
     </div>
   </section>
 
-  <!-- About Us Section -->
-  <section id="about" class="py-12 bg-gray-100">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4">About Us</h2>
-      <p class="mb-6">
-        Our mission is to serve the best coffee.
-      </p>
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-8">Choose Your Plan</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Basic Tier -->
+        <div class="bg-white shadow rounded p-6 text-center">
+          <h3 class="text-2xl font-bold mb-4">Basic</h3>
+          <p class="text-4xl font-bold mb-4">$9<span class="text-lg">/mo</span></p>
+          <ul class="mb-6">
+            <li class="mb-2">Access to all languages</li>
+            <li class="mb-2">Interactive lessons</li>
+            <li class="mb-2">Speak from day one</li>
+          </ul>
+          <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+            Choose Plan
+          </a>
+        </div>
+        <!-- Pro Tier -->
+        <div class="bg-white shadow rounded p-6 text-center">
+          <h3 class="text-2xl font-bold mb-4">Pro</h3>
+          <p class="text-4xl font-bold mb-4">$19<span class="text-lg">/mo</span></p>
+          <ul class="mb-6">
+            <li class="mb-2">Everything in Basic</li>
+            <li class="mb-2">Personalized learning paths</li>
+            <li class="mb-2">Priority customer support</li>
+          </ul>
+          <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+            Choose Plan
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Menu Section -->
-  <section id="menu" class="py-12">
+  <!-- Contact Section -->
+  <section id="contact" class="py-12">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4">Our Menu</h2>
+      <h2 class="text-4xl font-bold mb-8">Get In Touch</h2>
       <p class="mb-6">
-        We offer a variety of coffees and snacks.
+        Have questions? We're here to help. Contact our support team at team@languageapp.com
       </p>
-    </div>
-  </section>
-
-  <!-- Shop Section -->
-  <section id="shop" class="py-12 bg-gray-100">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4">Our Shop</h2>
-      <p class="mb-6">
-        Purchase our coffee and merchandise online.
-      </p>
-    </div>
-  </section>
-
-  <!-- Locations Section -->
-  <section id="locations" class="py-12">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4">Our Locations</h2>
-      <p class="mb-6">
-        We have multiple outlets. Find the one nearest to you.
-      </p>
-    </div>
-  </section>
-<!-- Pricing Section -->
-<section id="pricing" class="py-12">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="text-3xl font-bold mb-4">Our Pricing</h2>
-
-    <!-- One-Time Purchase -->
-    <div class="mb-8">
-      <h3 class="text-2xl font-bold mb-4">One-Time Purchase</h3>
-      <p class="mb-6">
-        Purchase our coffee and merchandise for a one-time payment.
-        <!-- You can replace this placeholder text with the actual prices of your products. -->
-      </p>
-    </div>
-
-    <!-- Subscription Plans -->
-    <div class="mb-8">
-      <h3 class="text-2xl font-bold mb-4">Subscription Plans</h3>
-      <p class="mb-6">
-        Subscribe to our monthly coffee plans and enjoy our coffee delivered to your door.
-        <!-- You can replace this placeholder text with the details of your subscription plans. -->
-      </p>
-    </div>
-  </div>
-</section>
-  <!-- Contact Us Section -->
-  <section id="contact" class="py-12 bg-gray-100">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
-      <p class="mb-6">
-        Have any questions or feedback? Get in touch with us.
-      </p>
+      <a href="mailto:support@languageapp.com" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+        Email Us
+      </a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="bg-white shadow mt-12">
     <div class="container mx-auto px-4 py-4 text-center">
-      <p>&copy; 2022 Your Coffee Shop. All rights reserved.</p>
+      <p>&copy; 2025 Language Learning App. All rights reserved.</p>
     </div>
   </footer>
 </body>
