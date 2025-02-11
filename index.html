@@ -1,427 +1,754 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LingoLeap - Learn Languages Effortlessly</title>
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>QuikWind + Advanced Dashboard</title>
+      <!-- Tailwind CSS via CDN -->
+      <script src="https://cdn.tailwindcss.com"><script>
 
-    <!-- React, ReactDOM, and Babel (for JSX) -->
-    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+      <!-- React, ReactDOM, and Babel (for JSX) -->
+      <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"><script>
+      <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"><script>
+      <script src="https://unpkg.com/babel-standalone@6/babel.min.js"><script>
 
-    <!-- Chart.js (optional, can be removed if not using charts) -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <!-- Chart.js for charts -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"><script>
 
-    <style>
-      .transition-all {
-        transition: all 0.2s ease;
-      }
-    </style>
-  </head>
-  <body class="bg-gray-50 text-gray-900">
-    <div id="root"></div>
+      <!-- Optional extra styling for transitions/icons -->
+      <style>
+        .transition-all {
+          transition: all 0.2s ease;
+        }
+      </style>
+    </head>
+    <body class="bg-gray-50 text-gray-900">
+      <!-- Root element for React -->
+      <div id="root"></div>
 
-    <script type="text/babel">
-      /************************************************
-       * Navigation Bar
-       ************************************************/
-      function Navigation() {
-        return (
-          <nav className="bg-white shadow">
-            <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-              <div className="text-xl font-bold text-blue-600">LingoLeap</div>
-              <div className="space-x-4">
-                <a href="#home" className="hover:underline">Home</a>
-                <a href="#courses" className="hover:underline">Courses</a>
-                <a href="#features" className="hover:underline">Features</a>
-                <a href="#pricing" className="hover:underline">Pricing</a>
-                <a href="#testimonials" className="hover:underline">Testimonials</a>
-                <a href="#contact" className="hover:underline">Contact</a>
+      <!-- Single script: All components + App -->
+      <script type="text/babel">
+        /************************************************
+         *  1. QuikWind Components
+         ************************************************/
+
+        // Navigation
+        function Navigation() {
+          return (
+            <nav className="bg-white shadow">
+              <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+                <div className="text-xl font-bold">QuikWind</div>
+                <div>
+                  <a href="#landing" className="px-4 hover:underline">Landing</a>
+                  <a href="#dashboard" className="px-4 hover:underline">Dashboard</a>
+                  <a href="#testimonials" className="px-4 hover:underline">Testimonials</a>
+                  <a href="#faq" className="px-4 hover:underline">FAQ</a>
+                  <a href="#contact" className="px-4 hover:underline">Contact</a>
+                </div>
               </div>
-            </div>
-          </nav>
-        );
-      }
+            </nav>
+          );
+        }
 
-      /************************************************
-       * Hero / Landing Section
-       ************************************************/
-      function Landing() {
-        return (
-          <section id="home" className="py-16 bg-blue-50">
-            <div className="container mx-auto px-4 text-center">
-              <h1 className="text-5xl font-bold mb-4">
-                Learn a New Language with LingoLeap
-              </h1>
-              <p className="text-xl mb-8">
-                Interactive lessons, real-life practice, and expert guidance to boost your language skills.
-              </p>
-              <a
-                href="#courses"
-                className="bg-blue-600 text-white px-8 py-3 rounded hover:bg-blue-700 transition"
-              >
-                Explore Courses
-              </a>
-              <div className="mt-12">
+        // Landing
+        function Landing() {
+          return (
+            <section id="landing" className="py-12">
+              <div className="container mx-auto px-4 text-center">
                 <img
-                  src="https://via.placeholder.com/800x400?text=Learn+Languages"
-                  alt="Language Learning"
-                  className="mx-auto rounded shadow"
+                  src="https://via.placeholder.com/600x400"
+                  alt="Hero"
+                  className="mx-auto mb-6"
                 />
+                <h1 className="text-4xl font-bold mb-4">Welcome to QuikWind</h1>
+                <p className="mb-6">
+                  A fast, efficient, and modern solution for your web projects.
+                </p>
+                <a
+                  href="#features"
+                  className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition"
+                >
+                  Get Started
+                </a>
               </div>
-            </div>
-          </section>
-        );
-      }
+            </section>
+          );
+        }
 
-      /************************************************
-       * Courses Section
-       ************************************************/
-      function Courses() {
-        const courses = [
-          {
-            title: "Spanish for Beginners",
-            description: "Start speaking Spanish with interactive lessons and live practice sessions.",
-          },
-          {
-            title: "Conversational French",
-            description: "Improve your French through dialogue and cultural immersion.",
-          },
-          {
-            title: "Mandarin Mastery",
-            description: "From tones to characters, master Mandarin with a step-by-step approach.",
-          },
-        ];
+        // Features
+        function Features() {
+          return (
+            <section id="features" className="py-12">
+              <div className="container mx-auto px-4">
+                <h2 className="text-3xl font-bold text-center mb-8">Key Features</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="bg-white shadow rounded p-6 text-center">
+                    <h3 className="text-xl font-bold mb-2">Fast Performance</h3>
+                    <p>Optimized code for lightning fast load times.</p>
+                  </div>
+                  <div className="bg-white shadow rounded p-6 text-center">
+                    <h3 className="text-xl font-bold mb-2">Responsive Design</h3>
+                    <p>Looks great on all devices, from mobile to desktop.</p>
+                  </div>
+                  <div className="bg-white shadow rounded p-6 text-center">
+                    <h3 className="text-xl font-bold mb-2">Easy Customization</h3>
+                    <p>Tailwind CSS powered customization for your project.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        }
 
-        return (
-          <section id="courses" className="py-16">
-            <div className="container mx-auto px-4">
-              <h2 className="text-4xl font-bold text-center mb-12">Our Courses</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {courses.map((course, index) => (
-                  <div key={index} className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-all">
-                    <h3 className="text-2xl font-semibold mb-4">{course.title}</h3>
-                    <p className="mb-4">{course.description}</p>
+        // Pricing
+        function Pricing() {
+          return (
+            <section id="pricing" className="py-12">
+              <div className="container mx-auto px-4">
+                <h2 className="text-3xl font-bold text-center mb-8">Pricing Plans</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {/* Basic */}
+                  <div className="bg-white shadow rounded p-6 text-center">
+                    <h3 className="text-2xl font-bold mb-4">Basic</h3>
+                    <p className="text-4xl font-bold mb-4">
+                      $9<span className="text-lg">/mo</span>
+                    </p>
+                    <ul className="mb-6">
+                      <li className="mb-2">Feature One</li>
+                      <li className="mb-2">Feature Two</li>
+                      <li className="mb-2">Feature Three</li>
+                    </ul>
                     <a
                       href="#"
-                      className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+                      className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition"
                     >
-                      Learn More
+                      Choose Plan
                     </a>
                   </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        );
-      }
-
-      /************************************************
-       * Features Section
-       ************************************************/
-      function Features() {
-        const features = [
-          {
-            title: "Interactive Lessons",
-            description: "Engage with fun lessons that mix videos, quizzes, and games.",
-          },
-          {
-            title: "Qualified Tutors",
-            description: "Learn from experienced, native-speaking teachers.",
-          },
-          {
-            title: "Progress Tracking",
-            description: "Monitor your growth with personalized dashboards.",
-          },
-        ];
-
-        return (
-          <section id="features" className="py-16 bg-gray-100">
-            <div className="container mx-auto px-4">
-              <h2 className="text-4xl font-bold text-center mb-12">Features</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {features.map((feature, index) => (
-                  <div key={index} className="bg-white p-6 rounded shadow hover:shadow-lg transition-all">
-                    <h3 className="text-2xl font-semibold mb-4">{feature.title}</h3>
-                    <p>{feature.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        );
-      }
-
-      /************************************************
-       * Pricing Section
-       ************************************************/
-      function Pricing() {
-        const plans = [
-          {
-            name: "Free",
-            price: "0",
-            features: [
-              "Access to basic lessons",
-              "Community support",
-              "Limited progress tracking"
-            ],
-          },
-          {
-            name: "Pro",
-            price: "19",
-            features: [
-              "All Free features",
-              "Access to advanced courses",
-              "1-on-1 tutoring sessions",
-              "Priority support"
-            ],
-          },
-          {
-            name: "Premium",
-            price: "49",
-            features: [
-              "All Pro features",
-              "Personalized learning paths",
-              "Unlimited practice sessions",
-              "Exclusive webinars"
-            ],
-          },
-        ];
-
-        return (
-          <section id="pricing" className="py-16">
-            <div className="container mx-auto px-4">
-              <h2 className="text-4xl font-bold text-center mb-12">Pricing Plans</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {plans.map((plan, index) => (
-                  <div key={index} className="bg-white p-6 rounded-lg shadow hover:shadow-xl transition-all">
-                    <h3 className="text-2xl font-semibold mb-4 text-center">{plan.name}</h3>
-                    <div className="text-center text-4xl font-bold text-blue-600 mb-4">
-                      ${plan.price}
-                      {plan.name !== "Free" && <span className="text-lg font-normal">/mo</span>}
-                    </div>
-                    <ul className="mb-6 space-y-2">
-                      {plan.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center">
-                          <svg className="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                            <path d="M5 13l4 4L19 7"/>
-                          </svg>
-                          {feature}
-                        </li>
-                      ))}
+                  {/* Pro */}
+                  <div className="bg-white shadow rounded p-6 text-center">
+                    <h3 className="text-2xl font-bold mb-4">Pro</h3>
+                    <p className="text-4xl font-bold mb-4">
+                      $29<span className="text-lg">/mo</span>
+                    </p>
+                    <ul className="mb-6">
+                      <li className="mb-2">Everything in Basic</li>
+                      <li className="mb-2">Advanced Feature One</li>
+                      <li className="mb-2">Advanced Feature Two</li>
                     </ul>
-                    <div className="text-center">
-                      <a
-                        href="#"
-                        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-                      >
-                        {plan.name === "Free" ? "Get Started" : "Subscribe"}
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        );
-      }
-
-      /************************************************
-       * Testimonials Section
-       ************************************************/
-      function Testimonials() {
-        const testimonials = [
-          {
-            quote: "LingoLeap transformed the way I learn languages. The interactive lessons are so engaging!",
-            author: "Maria G.",
-          },
-          {
-            quote: "Thanks to LingoLeap, I’m now confidently speaking French. Highly recommended!",
-            author: "Jean P.",
-          },
-          {
-            quote: "The tutors are patient and knowledgeable. I love the progress tracking feature.",
-            author: "Ling W.",
-          },
-        ];
-
-        return (
-          <section id="testimonials" className="py-16 bg-blue-50">
-            <div className="container mx-auto px-4">
-              <h2 className="text-4xl font-bold text-center mb-12">What Our Learners Say</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {testimonials.map((t, index) => (
-                  <div key={index} className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-all">
-                    <p className="italic mb-4">"{t.quote}"</p>
-                    <p className="font-bold text-right">- {t.author}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        );
-      }
-
-      /************************************************
-       * FAQ Section
-       ************************************************/
-      function FAQ() {
-        const [openIndex, setOpenIndex] = React.useState(null);
-        const faqs = [
-          {
-            question: "What languages can I learn?",
-            answer: "We provide courses in Spanish, French, Mandarin, German and many more. Check our courses section for the full list.",
-          },
-          {
-            question: "Is there a free trial?",
-            answer: "Yes! You can start with our free plan to explore basic lessons and see if LingoLeap is right for you.",
-          },
-          {
-            question: "How do I book a tutoring session?",
-            answer: "Subscribers on our Pro and Premium plans can easily book sessions through our in-app scheduling system.",
-          },
-        ];
-
-        const toggleFAQ = (index) => {
-          setOpenIndex(openIndex === index ? null : index);
-        };
-
-        return (
-          <section id="faq" className="py-16 bg-gray-100">
-            <div className="container mx-auto px-4">
-              <h2 className="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-              <div className="space-y-4 max-w-2xl mx-auto">
-                {faqs.map((faq, index) => (
-                  <div key={index} className="bg-white rounded-lg shadow">
-                    <button
-                      onClick={() => toggleFAQ(index)}
-                      className="w-full text-left p-4 focus:outline-none flex justify-between items-center"
+                    <a
+                      href="#"
+                      className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition"
                     >
-                      <span className="font-semibold">{faq.question}</span>
-                      <span>{openIndex === index ? '-' : '+'}</span>
-                    </button>
-                    {openIndex === index && (
-                      <div className="p-4 border-t">
-                        <p>{faq.answer}</p>
-                      </div>
-                    )}
+                      Choose Plan
+                    </a>
                   </div>
-                ))}
+                  {/* Enterprise */}
+                  <div className="bg-white shadow rounded p-6 text-center">
+                    <h3 className="text-2xl font-bold mb-4">Enterprise</h3>
+                    <p className="text-4xl font-bold mb-4">
+                      $99<span className="text-lg">/mo</span>
+                    </p>
+                    <ul className="mb-6">
+                      <li className="mb-2">Everything in Pro</li>
+                      <li className="mb-2">Dedicated Support</li>
+                      <li className="mb-2">Custom Solutions</li>
+                    </ul>
+                    <a
+                      href="#"
+                      className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition"
+                    >
+                      Choose Plan
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        }
+
+        // Testimonials
+        function Testimonials() {
+          const testimonials = [
+            {
+              quote: "QuikWind has revolutionized the way we build our projects. The performance is unmatched!",
+              author: "Jane Doe, CEO of Acme Corp",
+            },
+            {
+              quote: "The ease of customization and the clean design are exactly what we needed.",
+              author: "John Smith, Lead Developer at TechSolutions",
+            },
+            {
+              quote: "An indispensable tool for modern web development. Highly recommended!",
+              author: "Alice Johnson, Founder of StartupX",
+            },
+          ];
+
+          return (
+            <section id="testimonials" className="py-12 bg-white">
+              <div className="container mx-auto px-4">
+                <h2 className="text-3xl font-bold text-center mb-8">Testimonials</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {testimonials.map((t, index) => (
+                    <div key={index} className="bg-gray-100 p-6 rounded shadow">
+                      <p className="italic mb-4">"{t.quote}"</p>
+                      <p className="font-bold text-right">- {t.author}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          );
+        }
+
+        // FAQ (Accordion)
+        function FAQ() {
+          const [openIndex, setOpenIndex] = React.useState(null);
+          const faqs = [
+            {
+              question: "What is QuikWind?",
+              answer: "QuikWind is a fast, efficient, and modern boilerplate for building web projects using Tailwind CSS.",
+            },
+            {
+              question: "How do I customize the template?",
+              answer: "You can easily customize the template by modifying the Tailwind CSS classes and components to suit your project.",
+            },
+            {
+              question: "Is QuikWind free to use?",
+              answer: "Yes, QuikWind is open-source and free to use for both personal and commercial projects.",
+            },
+          ];
+
+          const toggleFAQ = (index) => {
+            setOpenIndex(openIndex === index ? null : index);
+          };
+
+          return (
+            <section id="faq" className="py-12 bg-gray-100">
+              <div className="container mx-auto px-4">
+                <h2 className="text-3xl font-bold text-center mb-8">
+                  Frequently Asked Questions
+                </h2>
+                <div className="space-y-4">
+                  {faqs.map((faq, index) => (
+                    <div key={index} className="bg-white shadow rounded">
+                      <button
+                        onClick={() => toggleFAQ(index)}
+                        className="w-full text-left p-4 focus:outline-none"
+                      >
+                        <div className="flex justify-between items-center">
+                          <span className="font-semibold">{faq.question}</span>
+                          <span>{openIndex === index ? '-' : '+'}</span>
+                        </div>
+                      </button>
+                      {openIndex === index && (
+                        <div className="p-4 border-t">
+                          <p>{faq.answer}</p>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          );
+        }
+
+        // Contact Form
+        function ContactForm() {
+          const [formData, setFormData] = React.useState({ name: '', email: '', message: '' });
+
+          const handleChange = (e) => {
+            setFormData({ ...formData, [e.target.name]: e.target.value });
+          };
+
+          const handleSubmit = (e) => {
+            e.preventDefault();
+            console.log(formData);
+            alert('Message sent!');
+            setFormData({ name: '', email: '', message: '' });
+          };
+
+          return (
+            <section id="contact" className="py-12 bg-white">
+              <div className="container mx-auto px-4 max-w-lg">
+                <h2 className="text-3xl font-bold text-center mb-8">Contact Us</h2>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label htmlFor="name" className="block font-medium mb-1">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full p-3 border rounded"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block font-medium mb-1">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full p-3 border rounded"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block font-medium mb-1">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="w-full p-3 border rounded"
+                      rows="4"
+                      required
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700 transition"
+                  >
+                    Send Message
+                  </button>
+                </form>
+              </div>
+            </section>
+          );
+        }
+
+        // Footer
+        function Footer() {
+          return (
+            <footer className="bg-white shadow mt-12">
+              <div className="container mx-auto px-4 py-4 text-center">
+                <p>&copy; {new Date().getFullYear()} QuikWind. All rights reserved.</p>
+              </div>
+            </footer>
+          );
+        }
+
+        /************************************************
+         *  2. The “New” Dashboard Code (Sidebar, Topbar, Cards)
+         ************************************************/
+
+        // Sidebar
+        function Sidebar() {
+          return (
+            <aside className="w-64 h-auto bg-gray-100 border-r hidden md:flex flex-col">
+              <div className="p-4 flex items-center gap-2 border-b">
+                <div className="w-6 h-6 rounded bg-blue-300" />
+                <span className="text-xl font-bold">My Admin</span>
+              </div>
+
+              <nav className="flex-1 p-4">
+                <ul className="space-y-2 text-gray-700">
+                  <li className="font-medium">
+                    <a href="#" className="flex items-center p-2 rounded hover:bg-gray-200">
+                      <svg
+                        className="w-5 h-5 mr-2 text-gray-600"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M3 3h18v18H3z" />
+                      </svg>
+                      Dashboard
+                    </a>
+                  </li>
+                  <li className="font-medium">
+                    <a href="#" className="flex items-center p-2 rounded hover:bg-gray-200">
+                      <svg
+                        className="w-5 h-5 mr-2 text-gray-600"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M4 7h16M4 12h16M4 17h16" />
+                      </svg>
+                      Core
+                    </a>
+                  </li>
+                  <li className="font-medium">
+                    <a href="#" className="flex items-center p-2 rounded hover:bg-gray-200">
+                      <svg
+                        className="w-5 h-5 mr-2 text-gray-600"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 3v18m6-6H6" />
+                      </svg>
+                      Apartments
+                    </a>
+                  </li>
+                  <li className="font-medium">
+                    <a href="#" className="flex items-center p-2 rounded justify-between hover:bg-gray-200">
+                      <span className="flex items-center">
+                        <svg
+                          className="w-5 h-5 mr-2 text-gray-600"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M12 8v8m-4-4h8" />
+                        </svg>
+                        Translations
+                      </span>
+                      <span className="text-xs bg-blue-600 text-white px-2 py-0.5 rounded-full">
+                        4
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+
+                <div className="mt-8 text-sm uppercase text-gray-500 font-semibold">
+                  System
+                </div>
+                <ul className="mt-2 space-y-2 text-gray-700">
+                  <li>
+                    <a href="#" className="flex items-center p-2 rounded hover:bg-gray-200">
+                      <svg
+                        className="w-5 h-5 mr-2 text-gray-600"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M5 20h14M12 4v12" />
+                      </svg>
+                      Users
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="flex items-center p-2 rounded hover:bg-gray-200">
+                      <svg
+                        className="w-5 h-5 mr-2 text-gray-600"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M7 10h10v10H7zM10 7h4" />
+                      </svg>
+                      Audit Logs
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </aside>
+          );
+        }
+
+        // Topbar
+        function Topbar() {
+          return (
+            <div className="h-16 flex items-center justify-end px-4 bg-white border-b">
+              {/* Light / Dark mode toggle (dummy icon) */}
+              <button className="p-2 rounded hover:bg-gray-100 transition-all mr-4">
+                <svg
+                  className="w-6 h-6 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
+                </svg>
+              </button>
+
+              {/* User avatar */}
+              <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                <svg
+                  className="w-4 h-4 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 4a4 4 0 110 8 4 4 0 010-8zm0 10c-4 0-7 2-7 4v2h14v-2c0-2-3-4-7-4z" />
+                </svg>
               </div>
             </div>
-          </section>
-        );
-      }
+          );
+        }
 
-      /************************************************
-       * Contact Form Section
-       ************************************************/
-      function ContactForm() {
-        const [formData, setFormData] = React.useState({ name: "", email: "", message: "" });
-
-        const handleChange = (e) => {
-          setFormData({ ...formData, [e.target.name]: e.target.value });
-        };
-
-        const handleSubmit = (e) => {
-          e.preventDefault();
-          console.log(formData);
-          alert("Thanks for reaching out! We'll get back to you shortly.");
-          setFormData({ name: "", email: "", message: "" });
-        };
-
-        return (
-          <section id="contact" className="py-16">
-            <div className="container mx-auto px-4 max-w-lg">
-              <h2 className="text-4xl font-bold text-center mb-8">Get in Touch</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-xl font-medium mb-2" htmlFor="name">Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    onChange={handleChange}
-                    value={formData.name}
-                    className="w-full p-3 border rounded"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-xl font-medium mb-2" htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    onChange={handleChange}
-                    value={formData.email}
-                    className="w-full p-3 border rounded"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-xl font-medium mb-2" htmlFor="message">Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    onChange={handleChange}
-                    value={formData.message}
-                    rows="5"
-                    className="w-full p-3 border rounded"
-                    required
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700 transition"
-                >
-                  Send Message
-                </button>
-              </form>
+        // Generic Card container
+        function Card({ children }) {
+          return (
+            <div className="bg-white p-4 rounded shadow-sm">
+              {children}
             </div>
-          </section>
-        );
-      }
+          );
+        }
 
-      /************************************************
-       * Footer
-       ************************************************/
-      function Footer() {
-        return (
-          <footer className="bg-white shadow py-4">
-            <div className="container mx-auto px-4 text-center">
-              <p>&copy; {new Date().getFullYear()} LingoLeap. All rights reserved.</p>
+        // Chart card: Bar
+        function BarCard() {
+          const canvasRef = React.useRef(null);
+          React.useEffect(() => {
+            const ctx = canvasRef.current.getContext("2d");
+            new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+                datasets: [
+                  {
+                    label: "Apartments",
+                    data: [5, 3, 6, 2, 4, 5, 4],
+                    backgroundColor: "#5A738E",
+                    borderRadius: 4,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } },
+              },
+            });
+          }, []);
+          return (
+            <Card>
+              <h2 className="text-lg font-bold mb-2">Apartments last 7 days</h2>
+              <div className="text-3xl font-bold mb-2">29</div>
+              <div className="h-32">
+                <canvas ref={canvasRef} />
+              </div>
+            </Card>
+          );
+        }
+
+        // Chart card: Pie
+        function PieCard() {
+          const canvasRef = React.useRef(null);
+          React.useEffect(() => {
+            const ctx = canvasRef.current.getContext("2d");
+            new Chart(ctx, {
+              type: "pie",
+              data: {
+                labels: ["DE", "PL", "FR", "IT"],
+                datasets: [
+                  {
+                    data: [25, 35, 20, 20],
+                    backgroundColor: ["#547EA0", "#F58C1F", "#D33A2C", "#2A9D8F"],
+                  },
+                ],
+              },
+              options: { responsive: true, maintainAspectRatio: false },
+            });
+          }, []);
+          return (
+            <Card>
+              <h2 className="text-lg font-bold mb-4">Top countries</h2>
+              <div className="h-48">
+                <canvas ref={canvasRef} />
+              </div>
+            </Card>
+          );
+        }
+
+        // Chart card: Donut
+        function DonutCard() {
+          const canvasRef = React.useRef(null);
+          React.useEffect(() => {
+            const ctx = canvasRef.current.getContext("2d");
+            new Chart(ctx, {
+              type: "doughnut",
+              data: {
+                labels: ["1 rooms", "2 rooms", "3 rooms", "4 rooms"],
+                datasets: [
+                  {
+                    data: [30, 40, 15, 15],
+                    backgroundColor: ["#547EA0", "#F58C1F", "#D33A2C", "#2A9D8F"],
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: "65%",
+              },
+            });
+          }, []);
+          return (
+            <Card>
+              <h2 className="text-lg font-bold mb-2">Apartment by rooms</h2>
+              <div className="text-xl mb-2">2424 m<sup>2</sup> Total square</div>
+              <div className="h-40">
+                <canvas ref={canvasRef} />
+              </div>
+            </Card>
+          );
+        }
+
+        // Chart card: Line
+        function LineCard() {
+          const canvasRef = React.useRef(null);
+          React.useEffect(() => {
+            const ctx = canvasRef.current.getContext("2d");
+            new Chart(ctx, {
+              type: "line",
+              data: {
+                labels: ["19 Dec", "20 Dec", "21 Dec", "22 Dec", "23 Dec", "24 Dec", "25 Dec"],
+                datasets: [
+                  {
+                    label: "Listed",
+                    data: [1, 3, 2, 4, 1, 3, 2],
+                    borderColor: "#547EA0",
+                    fill: true,
+                    backgroundColor: "rgba(84,126,160,0.1)",
+                    tension: 0.3,
+                  },
+                  {
+                    label: "Unlisted",
+                    data: [2, 1, 4, 2, 3, 1, 3],
+                    borderColor: "#F58C1F",
+                    fill: true,
+                    backgroundColor: "rgba(245,140,31,0.1)",
+                    tension: 0.3,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } },
+              },
+            });
+          }, []);
+          return (
+            <Card>
+              <h2 className="text-lg font-bold mb-4">Unlisted vs Listed price</h2>
+              <div className="h-32">
+                <canvas ref={canvasRef} />
+              </div>
+            </Card>
+          );
+        }
+
+        // Chart card: CompareBar
+        function CompareBarCard() {
+          const canvasRef = React.useRef(null);
+          React.useEffect(() => {
+            const ctx = canvasRef.current.getContext("2d");
+            new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: ["19 Dec", "20 Dec", "21 Dec", "22 Dec", "23 Dec", "24 Dec", "25 Dec"],
+                datasets: [
+                  {
+                    label: "Listed price",
+                    data: [1, 4, 2, 3, 2, 4, 3],
+                    backgroundColor: "#547EA0",
+                    borderRadius: 4,
+                  },
+                  {
+                    label: "Unlisted price",
+                    data: [2, 2, 3, 1, 4, 2, 2],
+                    backgroundColor: "#F58C1F",
+                    borderRadius: 4,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                  x: { stacked: false },
+                  y: { beginAtZero: true },
+                },
+              },
+            });
+          }, []);
+          return (
+            <Card>
+              <div className="flex items-center justify-between mb-2">
+                <div>
+                  <h2 className="text-sm text-gray-500">Listed price</h2>
+                  <div className="text-xl font-bold text-blue-600">$77,626</div>
+                </div>
+                <div>
+                  <h2 className="text-sm text-gray-500 text-right">Unlisted price</h2>
+                  <div className="text-xl font-bold text-orange-500">$86,201</div>
+                </div>
+              </div>
+              <div className="h-64">
+                <canvas ref={canvasRef} />
+              </div>
+            </Card>
+          );
+        }
+
+        // The new “Dashboard” layout
+        function Dashboard() {
+          return (
+            <div className="flex-1 flex flex-col">
+              <Topbar />
+              <div className="flex-1 bg-blue-50 p-4">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                  <BarCard />
+                  <PieCard />
+                  <CompareBarCard />
+                  <DonutCard />
+                  <LineCard />
+                  {/* Extra placeholder */}
+                  <Card>
+                    <h2 className="text-lg font-bold">Another Chart</h2>
+                    <p className="text-sm text-gray-600">Add more content here</p>
+                  </Card>
+                </div>
+              </div>
             </div>
-          </footer>
-        );
-      }
+          );
+        }
 
-      /************************************************
-       * App Component: Combines all sections
-       ************************************************/
-      function App() {
-        return (
-          <div className="bg-gray-50 text-gray-900">
-            <Navigation />
-            <main>
-              <Landing />
-              <Courses />
-              <Features />
-              <Pricing />
-              <Testimonials />
-              <FAQ />
-              <ContactForm />
-            </main>
-            <Footer />
-          </div>
-        );
-      }
+        /************************************************
+         *  3. Final “App” that combines everything
+         ************************************************/
+        function App() {
+          return (
+            <div className="bg-gray-50 text-gray-900">
+              {/* Our old top nav */}
+              <Navigation />
 
-      ReactDOM.render(<App />, document.getElementById('root'));
-    </script>
-  </body>
-</html>
+              <main>
+                <Landing />
+                <Features />
+                <Pricing />
 
+                {/* The new “Sidebar + Dashboard” together */}
+                <section id="dashboard" className="flex min-h-screen">
+                  <Sidebar />
+                  <Dashboard />
+                </section>
+
+                <Testimonials />
+                <FAQ />
+                <ContactForm />
+              </main>
+
+              <Footer />
+            </div>
+          );
+        }
+
+        // Render into #root
+        ReactDOM.render(<App/>, document.getElementById('root'));
+      <script>
+    </body>
+    </html>
