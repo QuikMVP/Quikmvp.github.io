@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LinguaLearn - Master Languages Now</title>
+    <title>Sample Dashboard</title>
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -12,348 +12,202 @@
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-    <!-- Chart.js for future interactive progress charts (optional) -->
+    <!-- Chart.js for charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- Optional extra styling for transitions/icons -->
-    <style>
-      .transition-all {
-        transition: all 0.2s ease;
-      }
-    </style>
   </head>
   <body class="bg-gray-50 text-gray-900">
-    <!-- Root element for React -->
     <div id="root"></div>
-
-    <!-- Single script: All components + App -->
+    
     <script type="text/babel">
-      /************************************************
-       * 1. LinguaLearn Components
-       ************************************************/
-
-      // Navigation Bar
-      function Navigation() {
+      /***************************************
+       * Sidebar Component
+       ***************************************/
+      function Sidebar() {
         return (
-          <nav className="bg-white shadow">
-            <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-              <div className="text-xl font-bold">LinguaLearn</div>
-              <div className="space-x-4">
-                <a href="#landing" className="hover:underline">Home</a>
-                <a href="#courses" className="hover:underline">Courses</a>
-                <a href="#how-it-works" className="hover:underline">How It Works</a>
-                <a href="#testimonials" className="hover:underline">Testimonials</a>
-                <a href="#pricing" className="hover:underline">Pricing</a>
-                <a href="#contact" className="hover:underline">Contact</a>
-              </div>
+          <aside className="w-64 bg-gray-800 text-gray-100 flex flex-col h-screen">
+            <div className="p-6 text-2xl font-semibold border-b border-gray-700">
+              Dashboard
             </div>
-          </nav>
+            <nav className="flex-1 p-4">
+              <ul className="space-y-2">
+                <li>
+                  <a href="#" className="block p-2 rounded hover:bg-gray-700">
+                    Overview
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="block p-2 rounded hover:bg-gray-700">
+                    Analytics
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="block p-2 rounded hover:bg-gray-700">
+                    Sales
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="block p-2 rounded hover:bg-gray-700">
+                    Reports
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="block p-2 rounded hover:bg-gray-700">
+                    Settings
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div className="p-4 border-t border-gray-700 text-sm">
+              Logged in as Admin
+            </div>
+          </aside>
         );
       }
 
-      // Landing Section with Hero Image
-      function Landing() {
+      /***************************************
+       * Topbar Component
+       ***************************************/
+      function Topbar() {
         return (
-          <section id="landing" className="py-12 bg-blue-50">
-            <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-              <div className="md:w-1/2">
-                <h1 className="text-5xl font-bold mb-4">Speak a New Language with Confidence</h1>
-                <p className="mb-6 text-lg text-gray-700">
-                  Join thousands of learners and start your journey to mastering a language today!
-                </p>
-                <a
-                  href="#courses"
-                  className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition"
-                >
-                  Discover Courses
-                </a>
+          <div className="flex items-center justify-between bg-white shadow px-4 py-4">
+            <div className="text-xl font-bold">My Dashboard</div>
+            <div className="flex items-center space-x-4">
+              <button className="p-2 rounded-full hover:bg-gray-100">
+                <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M15 17h5l-1.405-1.405M19 13v-2a5 5 0 00-10 0v2" />
+                </svg>
+              </button>
+              <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
+                <span className="text-sm font-semibold text-gray-800">A</span>
               </div>
-              <div className="md:w-1/2 mt-8 md:mt-0">
-                <img
-                  src="https://via.placeholder.com/600x400"
-                  alt="Learn Languages"
-                  className="w-full rounded shadow"
+            </div>
+          </div>
+        );
+      }
+
+      /***************************************
+       * Card Component
+       ***************************************/
+      function Card({ title, children }) {
+        return (
+          <div className="bg-white p-6 rounded shadow">
+            {title && <h2 className="text-lg font-bold mb-4">{title}</h2>}
+            {children}
+          </div>
+        );
+      }
+
+      /***************************************
+       * ChartCard Component using Chart.js
+       ***************************************/
+      function ChartCard({ title, type, data, options }) {
+        const canvasRef = React.useRef(null);
+
+        React.useEffect(() => {
+          if (canvasRef.current) {
+            new Chart(canvasRef.current, {
+              type,
+              data,
+              options: Object.assign(
+                {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                },
+                options
+              ),
+            });
+          }
+        }, []);
+
+        return (
+          <Card title={title}>
+            <div className="h-64">
+              <canvas ref={canvasRef} />
+            </div>
+          </Card>
+        );
+      }
+
+      /***************************************
+       * Sample Dashboard Layout
+       ***************************************/
+      function Dashboard() {
+        // Sample data for a bar chart
+        const barData = {
+          labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+          datasets: [{
+            label: "Daily Visitors",
+            data: [120, 190, 150, 220, 180, 250, 230],
+            backgroundColor: "#4F46E5",
+          }]
+        };
+
+        // Sample data for a pie chart
+        const pieData = {
+          labels: ["Direct", "Referral", "Social"],
+          datasets: [{
+            data: [50, 30, 20],
+            backgroundColor: ["#10B981", "#F59E0B", "#EF4444"],
+          }]
+        };
+
+        return (
+          <div className="flex flex-1 flex-col">
+            <Topbar />
+            <div className="p-6 bg-gray-50 flex-1 overflow-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* Summary Card */}
+                <Card title="Total Sales">
+                  <div className="text-3xl font-bold">$24,568</div>
+                  <p className="text-sm text-gray-500 mt-2">Compared to last week</p>
+                </Card>
+                {/* Summary Card */}
+                <Card title="New Users">
+                  <div className="text-3xl font-bold">1,245</div>
+                  <p className="text-sm text-gray-500 mt-2">In the last 7 days</p>
+                </Card>
+                {/* Summary Card */}
+                <Card title="Active Sessions">
+                  <div className="text-3xl font-bold">652</div>
+                  <p className="text-sm text-gray-500 mt-2">Right now</p>
+                </Card>
+              </div>
+
+              <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Bar Chart Card */}
+                <ChartCard
+                  title="Daily Visitors"
+                  type="bar"
+                  data={barData}
+                />
+
+                {/* Pie Chart Card */}
+                <ChartCard
+                  title="Traffic Sources"
+                  type="pie"
+                  data={pieData}
                 />
               </div>
             </div>
-          </section>
-        );
-      }
-
-      // Courses / Features Section
-      function Courses() {
-        const courses = [
-          {
-            title: "Beginner Spanish",
-            description: "Start with the basics and build a strong foundation in Spanish.",
-          },
-          {
-            title: "Conversational French",
-            description: "Develop speaking and listening skills for everyday French.",
-          },
-          {
-            title: "Business English",
-            description: "Enhance your professional English with real-world scenarios.",
-          },
-        ];
-
-        return (
-          <section id="courses" className="py-12">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl font-bold text-center mb-8">Our Courses</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {courses.map((course, index) => (
-                  <div key={index} className="bg-white shadow rounded p-6">
-                    <h3 className="text-xl font-bold mb-2">{course.title}</h3>
-                    <p className="text-gray-600">{course.description}</p>
-                    <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-                      Enroll Now
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        );
-      }
-
-      // How It Works Section
-      function HowItWorks() {
-        const steps = [
-          "Choose your course",
-          "Learn at your own pace",
-          "Practice with native speakers",
-          "Track your progress",
-        ];
-
-        return (
-          <section id="how-it-works" className="py-12 bg-gray-100">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl font-bold text-center mb-8">How It Works</h2>
-              <div className="space-y-6 max-w-3xl mx-auto">
-                {steps.map((step, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <span className="text-2xl font-bold text-blue-600">{index + 1}.</span>
-                    <p className="text-gray-700 text-lg">{step}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        );
-      }
-
-      // Testimonials Section for Social Proof
-      function Testimonials() {
-        const testimonials = [
-          {
-            quote: "LinguaLearn completely transformed the way I learn languages. The interactive methods really kept me motivated!",
-            author: "Maria Gonzalez",
-          },
-          {
-            quote: "I was able to speak conversational French within months. Highly recommended for busy professionals.",
-            author: "Jean-Pierre Dupont",
-          },
-          {
-            quote: "The courses are engaging and practical. I love the mix of grammar, conversation, and culture!",
-            author: "Li Wei",
-          },
-        ];
-
-        return (
-          <section id="testimonials" className="py-12">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl font-bold text-center mb-8">Testimonials</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {testimonials.map((t, index) => (
-                  <div key={index} className="bg-white shadow rounded p-6">
-                    <p className="italic text-gray-600 mb-4">"{t.quote}"</p>
-                    <p className="font-bold text-right">- {t.author}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        );
-      }
-
-      // Pricing Section with subscription plans
-      function Pricing() {
-        const plans = [
-          {
-            title: "Basic",
-            price: "$9",
-            features: ["Access to beginner courses", "Community support", "Weekly updates"],
-          },
-          {
-            title: "Pro",
-            price: "$29",
-            features: ["Everything in Basic", "Intermediate & Advanced courses", "1-on-1 coaching"],
-          },
-          {
-            title: "Ultimate",
-            price: "$49",
-            features: ["Everything in Pro", "Unlimited access", "Exclusive webinars"],
-          },
-        ];
-
-        return (
-          <section id="pricing" className="py-12 bg-gray-50">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl font-bold text-center mb-8">Pricing Plans</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {plans.map((plan, index) => (
-                  <div key={index} className="bg-white shadow rounded p-6 text-center">
-                    <h3 className="text-2xl font-bold mb-4">{plan.title}</h3>
-                    <p className="text-4xl font-bold mb-4">
-                      {plan.price}<span className="text-lg">/mo</span>
-                    </p>
-                    <ul className="mb-6 space-y-2">
-                      {plan.features.map((feature, idx) => (
-                        <li key={idx}>{feature}</li>
-                      ))}
-                    </ul>
-                    <button className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
-                      Sign Up
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        );
-      }
-
-      // Contact Form for inquiries
-      function ContactForm() {
-        const [formData, setFormData] = React.useState({ name: '', email: '', message: '' });
-
-        const handleChange = (e) => {
-          setFormData({...formData, [e.target.name]: e.target.value });
-        };
-
-        const handleSubmit = (e) => {
-          e.preventDefault();
-          console.log(formData);
-          alert('Thank you for reaching out! We will get back to you soon.');
-          setFormData({ name: '', email: '', message: '' });
-        };
-
-        return (
-          <section id="contact" className="py-12 bg-white">
-            <div className="container mx-auto px-4 max-w-lg">
-              <h2 className="text-3xl font-bold text-center mb-8">Contact Us</h2>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block font-medium mb-1">Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full p-3 border rounded"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block font-medium mb-1">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full p-3 border rounded"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block font-medium mb-1">Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="4"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full p-3 border rounded"
-                    required
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700 transition"
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
-          </section>
-        );
-      }
-
-      // Footer Section
-      function Footer() {
-        return (
-          <footer className="bg-white shadow mt-12">
-            <div className="container mx-auto px-4 py-4 text-center">
-              <p>&copy; {new Date().getFullYear()} LinguaLearn. All rights reserved.</p>
-            </div>
-          </footer>
-        );
-      }
-
-      /************************************************
-       * 2. Optionally a Dashboard (e.g. for Language Progress)
-       ************************************************/
-
-      // Sample Dashboard to view progress (this can be expanded)
-      function Dashboard() {
-        return (
-          <div className="container mx-auto px-4 py-12">
-            <h2 className="text-3xl font-bold mb-6">My Dashboard</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white p-6 shadow rounded">
-                <h3 className="text-xl font-bold mb-2">Active Courses</h3>
-                <p className="text-3xl">2</p>
-              </div>
-              <div className="bg-white p-6 shadow rounded">
-                <h3 className="text-xl font-bold mb-2">Words Learned</h3>
-                <p className="text-3xl">350</p>
-              </div>
-            </div>
           </div>
         );
       }
 
-      /************************************************
-       * 3. Final “App” combining all sections
-       ************************************************/
+      /***************************************
+       * App Component combining Sidebar and Dashboard
+       ***************************************/
       function App() {
         return (
-          <div className="bg-gray-50 text-gray-900">
-            <Navigation />
-            <main>
-              <Landing />
-              <Courses />
-              <HowItWorks />
-              <Pricing />
-              
-              {/* You can uncomment the Dashboard if logged-in users should see their progress */}
-              {/* <Dashboard /> */}
-              
-              <Testimonials />
-              <ContactForm />
-            </main>
-            <Footer />
+          <div className="flex h-screen">
+            <Sidebar />
+            <Dashboard />
           </div>
         );
       }
 
-      // Render the App in the root element
-      ReactDOM.render(<App />, document.getElementById('root'));
+      // Render the App
+      ReactDOM.render(<App />, document.getElementById("root"));
     </script>
   </body>
 </html>
-'''
-
